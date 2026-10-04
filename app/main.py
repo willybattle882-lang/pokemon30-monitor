@@ -1,3 +1,4 @@
+```python
 import os
 import time
 import logging
@@ -10,6 +11,7 @@ from .matching import match
 from .db import DB
 from .telegram import Telegram, alert_text
 from .oauth import app as oauth_app
+from .token_store import load_token
 
 
 logging.basicConfig(
@@ -23,7 +25,17 @@ def scan():
     products = load_catalog()
     db = DB()
 
-    meli = MercadoLivreClient(cfg.meli_access_token)
+    token_data = load_token()
+
+    if not token_data:
+        logging.error(
+            "Token do Mercado Livre não encontrado."
+        )
+        return
+
+    meli = MercadoLivreClient(
+        token_data.get("access_token")
+    )
 
     tg = Telegram(
         cfg.telegram_bot_token,
@@ -36,7 +48,10 @@ def scan():
         try:
             listings = meli.search(q)
         except Exception:
-            logging.exception("Falha na busca %s", q)
+            logging.exception(
+                "Falha na busca %s",
+                q
+            )
             continue
 
         for l in listings:
@@ -52,7 +67,10 @@ def scan():
 
             _, p = m
 
-            limit = p.suggested_price * cfg.price_limit_ratio
+            limit = (
+                p.suggested_price
+                * cfg.price_limit_ratio
+            )
 
             if (
                 l.price <= 0
@@ -113,3 +131,4 @@ if __name__ == "__main__":
         host="0.0.0.0",
         port=port
     )
+```
