@@ -1,4 +1,4 @@
-```python
+python
 import os
 import time
 import logging
@@ -23,7 +23,9 @@ def scan():
     cfg = get_config()
     products = load_catalog()
     db = DB()
+
     meli = MercadoLivreClient(cfg.meli_access_token)
+
     tg = Telegram(
         cfg.telegram_bot_token,
         cfg.telegram_chat_id
@@ -45,6 +47,7 @@ def scan():
             done.add(l.item_id)
 
             m = match(l, products)
+
             if not m:
                 continue
 
@@ -94,9 +97,6 @@ def monitor_loop():
         time.sleep(cfg.poll_seconds)
 
 
-# Inicia o monitor em segundo plano.
-# Isso permite que o Gunicorn mantenha o Flask
-# disponível para o OAuth.
 monitor_thread = threading.Thread(
     target=monitor_loop,
     daemon=True
@@ -114,4 +114,3 @@ if __name__ == "__main__":
         host="0.0.0.0",
         port=port
     )
-```
