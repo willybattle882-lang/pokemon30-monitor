@@ -1,0 +1,18 @@
+{
+  "source": "public-reference",
+  "currency": "BRL",
+  "products": [
+    {"id":"30th-sticker-exeggutor","name":"Coleção com Adesivos - Exeggutor de Alola","aliases":["Exeggutor","adesivos Exeggutor","sticker Exeggutor"],"suggested_price":99.99,"packs":3},
+    {"id":"30th-sticker-lucario","name":"Coleção com Adesivos - Lucario","aliases":["Lucario","adesivos Lucario","sticker Lucario"],"suggested_price":99.99,"packs":3},
+    {"id":"30th-booster-bundle","name":"Combo de Pacotes de Booster de Celebração de 30 Anos","aliases":["Combo de Pacotes","booster bundle 30 anos","bundle 30 anos"],"suggested_price":199.99,"packs":6},
+    {"id":"30th-etb","name":"Coleção Treinador Avançado de Celebração de 30 Anos","aliases":["ETB","Elite Trainer Box","Coleção Treinador Avançado","30 Anos ETB"],"suggested_price":null,"packs":9},
+    {"id":"30th-poster","name":"Coleção com Pôster de Celebração de 30 Anos","aliases":["pôster 30 anos","poster 30 anos"],"suggested_price":null,"packs":3},
+    {"id":"30th-binder","name":"Coleção com Fichário de Celebração de 30 Anos","aliases":["fichário 30 anos","binder 30 anos"],"suggested_price":null,"packs":5},
+    {"id":"30th-sylveon","name":"Coleção Sylveon ex de Celebração de 30 Anos","aliases":["Sylveon ex","Coleção Sylveon"],"suggested_price":null,"packs":4},
+    {"id":"30th-greninja","name":"Coleção Greninja ex de Celebração de 30 Anos","aliases":["Greninja ex","Coleção Greninja"],"suggested_price":null,"packs":4},
+    {"id":"30th-mew-figure","name":"Coleção com Miniatura de Mew","aliases":["Mew figure","miniatura Mew"],"suggested_price":null,"packs":5},
+    {"id":"30th-mewtwo-figure","name":"Coleção com Miniatura de Mewtwo","aliases":["Mewtwo figure","miniatura Mewtwo"],"suggested_price":null,"packs":5},
+    {"id":"30th-day-upc","name":"Ultra-Premium Collection Dia","aliases":["UPC Dia","Ultra Premium Dia","Espeon ex UPC"],"suggested_price":null,"packs":30},
+    {"id":"30th-night-upc","name":"Ultra-Premium Collection Noite","aliases":["UPC Noite","Ultra Premium Noite","Umbreon ex UPC"],"suggested_price":null,"packs":30}
+  ]
+}
