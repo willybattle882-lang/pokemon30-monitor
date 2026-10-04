@@ -4,6 +4,9 @@ import requests
 
 from flask import Flask, redirect, request
 
+from .token_store import save_token
+
+
 app = Flask(__name__)
 
 BASE_AUTH = "https://auth.mercadolivre.com.br/authorization"
@@ -64,19 +67,15 @@ def oauth_callback():
 
     token_data = response.json()
 
-    print("TOKEN OBTIDO COM SUCESSO")
-    print("expires_in:", token_data.get("expires_in"))
-    print("user_id:", token_data.get("user_id"))
+    save_token(token_data)
 
-    # TEMPORÁRIO:
-    # vamos salvar esses dados no próximo passo.
-    print("ACCESS TOKEN:", token_data.get("access_token"))
-    print("REFRESH TOKEN:", token_data.get("refresh_token"))
+    print("Mercado Livre autorizado com sucesso.")
+    print("Token salvo.")
 
     return """
     <h1>Mercado Livre autorizado!</h1>
-    <p>O código foi trocado por um Access Token.</p>
-    <p>Volte ao Render e confira os logs.</p>
+    <p>Autorização concluída com sucesso.</p>
+    <p>O token foi salvo.</p>
     """
 
 
@@ -86,4 +85,7 @@ def home():
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=int(os.getenv("PORT", "10000")))
+    app.run(
+        host="0.0.0.0",
+        port=int(os.getenv("PORT", "10000"))
+    )
